@@ -1,144 +1,916 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Vesper+Libre:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
-    <link rel="stylesheet" href="home.css">
+
     <title>Portofolio Najla</title>
 
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+    * {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .logo {
+        font-family: 'Playfair Display', serif;
+    }
+
+    body {
+        background: #EAD6DB;
+        color: #3a394e;
+        line-height: 1.6;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 25px 10%;
+        background: rgba(253, 253, 253, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .logo {
+        font-size: 28px;
+        color: #3a394e;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: -0.5px;
+    }
+
+    .navbar a {
+        font-size: 15px;
+        text-decoration: none;
+        color: #555;
+        font-weight: 400;
+        margin-left: 40px;
+        transition: 0.3s ease;
+        padding-bottom: 5px;
+    }
+
+    .navbar a.active,
+    .navbar a:hover {
+        color: #3a394e;
+        border-bottom: 1px solid #3a394e;
+    }
+
+    /* Home Section */
+    .home {
+        min-height: 50vh;
+        background: #FDFDFD;
+        background: linear-gradient(180deg, rgba(253, 253, 253, 1) 0%, rgba(253, 253, 253, 1) 60%, #EAD6DB 100%);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 120px 10% 0px 10%;
+    }
+
+    .home-content {
+        max-width: 45%;
+        z-index: 2;
+        padding-bottom: 60px;
+    }
+
+    .home-content h2 {
+        font-size: 22px;
+        font-weight: 400;
+        color: #7CA8A1;
+        margin-bottom: 15px;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .home-content h1 {
+        font-size: 65px;
+        font-weight: 700;
+        color: #3a394e;
+        margin-bottom: 10px;
+        line-height: 1.1;
+        letter-spacing: -1px;
+    }
+
+    .home-content h1 span {
+        font-style: italic;
+        color: #B07C82;
+    }
+
+    .home-content h3 {
+        font-size: 28px;
+        font-weight: 400;
+        color: #3a394e;
+        margin-bottom: 25px;
+    }
+
+    .home-content p {
+        font-size: 16px;
+        font-weight: 300;
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 40px;
+    }
+
+    .btn-box {
+        display: flex;
+        gap: 20px;
+    }
+
+    .btn-box a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 30px;
+        background: #3a394e;
+        border: 1px solid #3a394e;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #FDFDFD;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.4s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .btn-box a:hover {
+        background: transparent;
+        color: #3a394e;
+    }
+
+    .btn-box a:nth-child(2) {
+        background: transparent;
+        color: #3a394e;
+        border: 1px solid rgba(3, 7, 99, 0.2);
+    }
+
+    .btn-box a:nth-child(2):hover {
+        border-color: #3a394e;
+        background: #3a394e;
+        border: 1px solid #3a394e;
+        color: #FDFDFD;
+    }
+
+    .home-image {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        position: sticky;
+    }
+
+
+
+    .home-image img {
+        opacity: 85%;
+        width: 100%;
+        max-width: 500px;
+        display: block;
+        transition: 0.5s ease;
+        /* -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); */
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    }
+
+    .home-image img:hover {
+        transform: translateY(-10px);
+    }
+
+    /* Offer Section */
+    .offer {
+        text-align: center;
+        background: #EAD6DB;
+        padding: 100px 10%;
+    }
+
+    .offer h1 {
+        font-size: 40px;
+        color: #3a394e;
+        margin-bottom: 60px;
+    }
+
+    .offers {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+    .job {
+        background: #FDFDFD;
+        border-radius: 8px;
+        padding: 40px;
+        width: 320px;
+        transition: 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .job:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        transform: translateY(-5px);
+    }
+
+    .job img {
+        width: 50%;
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+
+    .job h3 {
+        font-size: 24px;
+        color: #3a394e;
+    }
+
+    /* Skills Section */
+    .skills {
+        display: flex;
+        justify-content: space-around;
+        padding: 100px 10%;
+        background: linear-gradient(180deg, #EAD6DB 0%, rgba(253, 253, 253, 1) 100%);
+
+        flex-wrap: wrap;
+        gap: 60px;
+    }
+
+    .technical-skills,
+    .soft-skills {
+        width: 45%;
+        min-width: 320px;
+    }
+
+    .technical-skills h1,
+    .soft-skills h1 {
+        font-size: 32px;
+        color: #3a394e;
+        margin-bottom: 40px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding-bottom: 15px;
+    }
+
+    .skill {
+        margin: 25px 0;
+    }
+
+    .skill h3 {
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        color: #3a394e;
+        font-size: 15px;
+        margin-bottom: 10px;
+        letter-spacing: 0.5px;
+    }
+
+    .bar,
+    .bars {
+        display: block;
+        border: 1px solid #3a394e;
+        border-radius: 4px;
+        overflow: hidden;
+        height: 10px;
+    }
+
+    .bar span,
+    .bars span {
+        height: 100%;
+        float: left;
+        background: #7CA8A1;
+        border-radius: 4px;
+    }
+
+    .soft-skills .bars span {
+        background: #B07C82;
+    }
+
+    .cplus,
+    .rstudio {
+        width: 50%;
+    }
+
+    .python,
+    .figma,
+    .teaching,
+    .listening {
+        width: 90%;
+    }
+
+    .mysql,
+    .cieses,
+    .creativity,
+    .adapt {
+        width: 80%;
+    }
+
+    .html,
+    .probsol,
+    .teamwork {
+        width: 85%;
+    }
+
+    .javascript,
+    .writing {
+        width: 70%;
+    }
+
+    /* Experience Section */
+    .experience {
+        padding: 100px 10%;
+        background: #EAD6DB;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .experience h1 {
+        font-size: 40px;
+        color: #3a394e;
+        margin-bottom: 60px;
+    }
+
+    .exp-list {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .exp-item {
+        background: #FDFDFD;
+        border-radius: 8px;
+        padding: 40px;
+        display: flex;
+        gap: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        transition: 0.4s ease;
+    }
+
+    .exp-item:hover {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        transform: translateY(-5px);
+    }
+
+    .exp-icon {
+        font-size: 40px;
+        color: #B07C82;
+        display: flex;
+        align-items: flex-start;
+        padding-top: 5px;
+    }
+
+    .exp-details {
+        display: flex;
+        flex-direction: column;
+        color: #3a394e;
+    }
+
+    .exp-details h3 {
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 8px;
+    }
+
+    .exp-details h4 {
+        font-family: 'Inter', sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 12px;
+        color: #7CA8A1;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .exp-date,
+    .exp-location {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 4px;
+    }
+
+    .exp-skills {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .exp-skills i {
+        color: #B07C82;
+        margin-right: 5px;
+    }
+
+    /* Contact Us */
+    .contact-us {
+        text-align: center;
+        background: #FDFDFD;
+        padding: 100px 10%;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-us h1 {
+        font-size: 32px;
+        color: #3a394e;
+        margin-bottom: 40px;
+    }
+
+    .home-sci {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .home-sci a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        background: transparent;
+        border: 1px solid rgba(176, 124, 130, 0.3);
+        border-radius: 50%;
+        color: #B07C82;
+        font-size: 20px;
+        text-decoration: none;
+        transition: 0.4s ease;
+    }
+
+    .home-sci a:hover {
+        border-color: #B07C82;
+        background: #B07C82;
+        color: #FDFDFD;
+        transform: translateY(-5px);
+    }
+
+    /* Projects Section */
+    .projects {
+        padding: 120px 10% 80px 10%;
+        background: #FDFDFD;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .projects h1 {
+        font-size: 45px;
+        color: #3a394e;
+        margin-bottom: 60px;
+        letter-spacing: -1px;
+    }
+
+    .project {
+        background: #FDFDFD;
+        border-radius: 12px;
+        margin-bottom: 30px;
+        width: 100%;
+        max-width: 900px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        transition: 0.4s ease;
+    }
+
+    .project:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        transform: translateY(-5px);
+    }
+
+    .project>a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .project .desc {
+        max-width: 80%;
+    }
+
+    .project .desc h2 {
+        font-size: 26px;
+        font-weight: 600;
+        color: #3a394e;
+        margin-bottom: 15px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .project .desc p {
+        font-family: 'Inter', sans-serif;
+        font-size: 15px;
+        color: #555;
+        line-height: 1.7;
+        font-weight: 300;
+    }
+
+    .project .linked i {
+        font-size: 40px;
+        color: #B07C82;
+        transition: 0.3s ease;
+    }
+
+    .project:hover .linked i {
+        color: #7CA8A1;
+        transform: translateX(10px);
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            padding: 15px 5%;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .navbar a {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .home {
+            flex-direction: column;
+            padding: 150px 5% 50px 5%;
+            text-align: center;
+            align-items: center;
+        }
+
+        .home-content {
+            max-width: 100%;
+            padding-bottom: 30px;
+        }
+
+        .home-content h1 {
+            font-size: 45px;
+        }
+
+        .home-content h3 {
+            font-size: 22px;
+        }
+
+        .btn-box {
+            justify-content: center;
+        }
+
+        .home-image {
+            display: none;
+        }
+
+        .offer,
+        .skills,
+        .experience,
+        .contact-us,
+        .projects {
+            padding: 60px 5%;
+        }
+
+        .job {
+            width: 100%;
+        }
+
+        .technical-skills,
+        .soft-skills {
+            width: 100%;
+            min-width: 100%;
+        }
+
+        .exp-item {
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .project>a {
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            gap: 15px;
+            padding: 25px;
+        }
+
+        .project .desc {
+            max-width: 100%;
+        }
+
+        .project .desc h2 {
+            font-size: 20px;
+        }
+
+        .project .linked {
+            align-self: flex-end;
+        }
+    }
+</style>
+
 <body>
     <header class="header">
-        <a href="home.html" class="logo">najla</a>
+        <a href="index.html" class="logo">najla</a>
         <nav class="navbar">
-            <a href="index.html" class="active">Home</a>
+            <a href="#homepage" class="active">Home</a>
             <!-- <a href="services.html">Services</a> -->
-            <a href="porto.html">Projects</a>
-            
+            <a href="#portofolio">Projects</a>
+
         </nav>
     </header>
-    <section class="home">
-        
-        <span class="home-imgHover"></span>
-        <div class="home-content">
-            <h2>Hello there, I am</h2>
-            <h1>Najla <span>Khalishah</span></h1>
-            <h3>Student of Binus University</h3>
-            <p>Computer Science undergraduate student at Binus University Kemanggisan, 
-                with skills in Data Analytics and Web Development. I am a detail-oriented 
-                individual with a high learning spirit. I am interested in contributing to 
-                innovative and challenging projects.</p>
+    <section class="homepage" id="homepage">
+        <section class="home">
+            <div class="home-content">
+                <h2>Hello there, I am</h2>
+                <h1>Najla <span>Khalishah</span></h1>
+                <h3>Undergraduate Student of Binus University</h3>
+                <p>A detail-oriented Computer Science undergraduate at Binus University, specializing in Data Analytics
+                    and
+                    Web Development. Driven by a passion for continuous learning, I thrive in crafting innovative
+                    solutions
+                    for complex challenges and bringing impactful projects to life. Additionally, I have experience
+                    teaching
+                    coding to children as a Coding Instructor, helping young learners develop problem-solving skills and
+                    build a strong foundation in programming through engaging and interactive learning experiences.</p>
                 <div class="btn-box">
-                    <a href="https://binusianorg-my.sharepoint.com/personal/najla_khalishah_binus_ac_id/_layouts/15/guestaccess.aspx?share=EQUgYYoyBsxNtRWH3xG3IBMBb0Yj2-g6y_a7ub8Q57MQcw">Download CV</a>
+                    <a
+                        href="https://binusianorg-my.sharepoint.com/personal/najla_khalishah_binus_ac_id/_layouts/15/guestaccess.aspx?share=EQUgYYoyBsxNtRWH3xG3IBMBb0Yj2-g6y_a7ub8Q57MQcw">
+                        Download CV</a>
                     <a href="https://www.linkedin.com/in/najla-khalishah-55710321b/">Contact me</a>
                 </div>
-        </div>
-    </section>
-    <section class="offer">
-        <h1>What Do I Offer</h1>
-        <div class="offers">
-            <div class="job">
-                <img src="assets/data_analyst.png" alt="">
-                <h3>Data Analyst</h3>
             </div>
-            <div class="job">
-                <img src="assets//web_dev.png" alt="">
-                <h3>Web Developer</h3>
+            <div class="home-image">
+                <img src="assets/foto_najla.png" alt="Najla Khalishah">
             </div>
-        </div>
-    </section>
-    <div class="space">
+        </section>
+        <section class="offer">
+            <h1>What Do I Offer</h1>
+            <div class="offers">
+                <div class="job">
+                    <h3>Coding Instructor</h3>
+                </div>
+                <div class="job">
+                    <h3>Data Analyst</h3>
+                </div>
+                <div class="job">
+                    <h3>Web Developer</h3>
+                </div>
+            </div>
+        </section>
+        <div class="space"></div>
+        <section class="experience">
+            <h1>Experience</h1>
+            <div class="exp-list">
+                <div class="exp-item">
+                    <div class="exp-icon">
+                        <i class='bx bx-briefcase'></i>
+                    </div>
+                    <div class="exp-details">
+                        <h3>Instructor</h3>
+                        <h4>The Lab Indonesia · Full-time</h4>
+                        <p class="exp-date">Mar 2026 - Present · 5 mos</p>
+                        <p class="exp-location">Jakarta, Indonesia</p>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-icon">
+                        <i class='bx bx-code-alt'></i>
+                    </div>
+                    <div class="exp-details">
+                        <h3>Coding Instructor</h3>
+                        <h4>KodeKiddo · Internship</h4>
+                        <p class="exp-date">Feb 2025 - Feb 2026 · 1 yr 1 mo</p>
+                        <p class="exp-location">Bandung, West Java, Indonesia · On-site</p>
+                        <p class="exp-skills"><i class='bx bx-diamond'></i> Python (Bahasa Pemrograman), JavaScript and
+                            +6
+                            skills</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="space"></div>
 
-    </div>
-    <section class="skills">
-        <div class="technical-skills">
-            <h1>Technical Skills</h1>
-            <div class="skill">
-                <h3>C++</h3>
-                <span class="bar">
-                    <span class="cplus"></span>
-                </span>
+        <section class="skills">
+            <div class="technical-skills">
+                <h1>Technical Skills</h1>
+                <div class="skill">
+                    <h3>C++</h3>
+                    <span class="bar">
+                        <span class="cplus"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>Python</h3>
+                    <span class="bar">
+                        <span class="python"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>RStudio</h3>
+                    <span class="bar">
+                        <span class="rstudio"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>MySQL</h3>
+                    <span class="bar">
+                        <span class="mysql"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>html</h3>
+                    <span class="bar">
+                        <span class="html"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>CSS</h3>
+                    <span class="bar">
+                        <span class="cieses"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>JavaScript</h3>
+                    <span class="bar">
+                        <span class="javascript"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>Figma</h3>
+                    <span class="bar">
+                        <span class="figma"></span>
+                    </span>
+                </div>
             </div>
-            <div class="skill">
-                <h3>Python</h3>
-                <span class="bar">
-                    <span class="python"></span>
-                </span>
+            <div class="soft-skills">
+                <h1>Soft Skills</h1>
+                <div class="skill">
+                    <h3>Teaching</h3>
+                    <span class="bars">
+                        <span class="teaching"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>Adaptability</h3>
+                    <span class="bars">
+                        <span class="adapt"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>Creativity</h3>
+                    <span class="bars">
+                        <span class="creativity"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>Creativity</h3>
+                    <span class="bars">
+                        <span class="creativity"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>Problem-Solving</h3>
+                    <span class="bars">
+                        <span class="probsol"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>Writing</h3>
+                    <span class="bars">
+                        <span class="writing"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>Listening</h3>
+                    <span class="bars">
+                        <span class="listening"></span>
+                    </span>
+                </div>
+                <div class="skill">
+                    <h3>Teamwork</h3>
+                    <span class="bars">
+                        <span class="teamwork"></span>
+                    </span>
+                </div>
             </div>
-            <div class="skill">
-                <h3>RStudio</h3>
-                <span class="bar">
-                    <span class="rstudio"></span>
-                </span>
-            </div>
-            <div class="skill">
-                <h3>MySQL</h3>
-                <span class="bar">
-                    <span class="mysql"></span>
-                </span>
-            </div>
-            <div class="skill">
-                <h3>html</h3>
-                <span class="bar">
-                    <span class="html"></span>
-                </span>
-            </div>
-            <div class="skill">
-                <h3>CSS</h3>
-                <span class="bar">
-                    <span class="cieses"></span>
-                </span>
-            </div>
-            <div class="skill">
-                <h3>Figma</h3>
-                <span class="bar">
-                    <span class="figma"></span>
-                </span>
-            </div>
+        </section>
+
+    </section>
+    <section class="projects" id="portofolio">
+        <h1>My Projects</h1>
+        <div class="project">
+            <a
+                href="https://www.figma.com/proto/i4Js7mG7L0ECNCATapCFdT/calm?node-id=48-928&node-type=frame&t=hYGNr6Hatprch1QW-1&scaling=min-zoom&content-scaling=fixed&page-id=23%3A89">
+                <div class="desc">
+                    <h2>Calm</h2>
+                    <p>Calm is a website that provides various services related to mental health.</p>
+                </div>
+                <div class="linked">
+                    <i class='bx bxs-chevron-right-circle'></i>
+                </div>
+            </a>
         </div>
-        <div class="soft-skills">
-            <h1>Soft Skills</h1>
-            <div class="skill">
-                <h3>Creativity</h3>
-                <span class="bars">
-                    <span class="creativity"></span>
-                </span>
-            </div>
-            <div class="skill">
-                <h3>Problem-Solving</h3>
-                <span class="bars">
-                    <span class="probsol"></span>
-                </span>
-            </div>
-            <div class="skill">
-                <h3>Writing</h3>
-                <span class="bars">
-                    <span class="writing"></span>
-                </span>
-            </div>
-            <div class="skill">
-                <h3>Listening</h3>
-                <span class="bars">
-                    <span class="listening"></span>
-                </span>
-            </div>
-            <div class="skill">
-                <h3>Teamwork</h3>
-                <span class="bars">
-                    <span class="teamwork"></span>
-                </span>
-            </div>
+        <div class="project">
+            <a
+                href="https://www.figma.com/proto/1CSx13YnldfuDjeHqgla45/shopee?node-id=7-710&node-type=canvas&t=qlHjfVt9boZG078Z-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1">
+                <div class="desc">
+                    <h2>Human & Computer Interaction Course Assignment</h2>
+                    <p>Improving the appearance of Shopee including the Brightness Adjustment, Dark Mode, and Simplified
+                        Header Design</p>
+                </div>
+                <div class="linked">
+                    <i class='bx bxs-chevron-right-circle'></i>
+                </div>
+            </a>
+        </div>
+        <div class="project">
+            <a href="https://github.com/najla2706/2602130445-Najla-Khalishah-AOL-HCI.git">
+                <div class="desc">
+                    <h2>Hi-Toyz</h2>
+                    <p>Hi-Toyz is a children's toy store that is made with an attractive appearance</p>
+                </div>
+                <div class="linked">
+                    <i class='bx bxs-chevron-right-circle'></i>
+                </div>
+            </a>
+        </div>
+        <div class="project">
+            <a
+                href="https://www.figma.com/proto/j07fpXo31DxlMJeLOHOlf5/HCI-aol?node-id=50-9950&node-type=canvas&t=hCHAJFnVSCS0Ni95-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=50%3A9950">
+                <div class="desc">
+                    <h2>YO-VOTE</h2>
+                    <p>Yo-Vote is a user-friendly voting application designed to facilitate secure, accessible, and
+                        efficient participation in elections. With features aimed at ensuring the integrity and
+                        confidentiality of votes, Yo-Vote employs secure authentication protocols, real-time tracking,
+                        and user support to handle common voting concerns. The app is providing a versatile solution
+                        that meets modern democratic needs.</p>
+                </div>
+                <div class="linked">
+                    <i class='bx bxs-chevron-right-circle'></i>
+                </div>
+            </a>
+        </div>
+        <div class="project">
+            <a
+                href="https://binusianorg-my.sharepoint.com/personal/najla_khalishah_binus_ac_id/_layouts/15/guestaccess.aspx?share=ErDGzm8POBZKse53Or8gStsBTs-6A2iHQI5WWGfwKbc-Sg&e=sH6vf4">
+                <div class="desc">
+                    <h2>Credit Card Fraud Detection</h2>
+                    <p>Analysis with effective detection methods using data analytics and machine learning techniques to
+                        address the complexity and dynamics of large and complex credit card transactions.</p>
+                </div>
+                <div class="linked">
+                    <i class='bx bxs-chevron-right-circle'></i>
+                </div>
+            </a>
+        </div>
+        <div class="project">
+            <a
+                href="https://binusianorg-my.sharepoint.com/personal/najla_khalishah_binus_ac_id/_layouts/15/guestaccess.aspx?share=IQAEVg3WOqs9RooIs2trqMeQAVtmzCVEjNtgSUOATrKRMXM&e=lkr6bn">
+                <div class="desc">
+                    <h2>Web Service & Cloud Services</h2>
+                    <p>Developed and deployed a cloud-based web service on AWS EC2 using Go, Nginx, and Amazon RDS
+                        MySQL, gaining hands-on experience in cloud deployment and backend configuration.</p>
+                </div>
+                <div class="linked">
+                    <i class='bx bxs-chevron-right-circle'></i>
+                </div>
+            </a>
+        </div>
+        <div class="project">
+            <a
+                href="https://binusianorg-my.sharepoint.com/personal/najla_khalishah_binus_ac_id/_layouts/15/guestaccess.aspx?share=IQC38rvPt_L1R6BxNHIoK-p8Aa3mb93yFhZTjBKxqbHF43Q&e=JEODWQ">
+                <div class="desc">
+                    <h2>AWS Load Balancing</h2>
+                    <p>Configured an AWS Application Load Balancer (ALB) to distribute traffic across multiple EC2
+                        instances, improving application availability and scalability.</p>
+                </div>
+                <div class="linked">
+                    <i class='bx bxs-chevron-right-circle'></i>
+                </div>
+            </a>
         </div>
     </section>
-    
     <section class="contact-us">
         <h1>Contact Us</h1>
         <div class="home-sci">
@@ -149,10 +921,38 @@
                 <a href="mailto:najlakhaliszhah101@gmail.com"><i class='bx bxs-envelope'></i></a>
             </div>
             <div class="contacts">
-                <a href="https://www.linkedin.com/in/najla-khalishah-55710321b/"><i class='bx bxl-linkedin-square' ></i></a>
+                <a href="https://www.linkedin.com/in/najla-khalishah-55710321b/"><i
+                        class='bx bxl-linkedin-square'></i></a>
             </div>
         </div>
     </section>
-    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const homeNav = document.querySelector('a[href="#homepage"]');
+            const portoNav = document.querySelector('a[href="#portofolio"]');
+            const homeSection = document.getElementById('homepage');
+            const portoSection = document.getElementById('portofolio');
+
+            function updateView() {
+                let hash = window.location.hash;
+                if (hash === '#portofolio') {
+                    homeSection.style.display = 'none';
+                    portoSection.style.display = 'flex';
+                    homeNav.classList.remove('active');
+                    portoNav.classList.add('active');
+                } else {
+                    homeSection.style.display = 'block';
+                    portoSection.style.display = 'none';
+                    portoNav.classList.remove('active');
+                    homeNav.classList.add('active');
+                }
+            }
+
+            window.addEventListener('hashchange', updateView);
+            updateView();
+        });
+    </script>
 </body>
+
 </html>
